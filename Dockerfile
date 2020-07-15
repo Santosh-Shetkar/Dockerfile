@@ -1,2 +1,9 @@
-FROM docker.io/httpd
-CMD echo "Hello Redhat" > /var/www/html/index.html
+FROM centos:latest
+
+MAINTAINER Santosh
+
+RUN yum install httpd -y
+
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
+EXPOSE 80
